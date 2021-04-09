@@ -9,6 +9,15 @@ export function getSwiper(id) {
   })
 }
 
+export function getInfo(id) {
+  return request({
+    url: '/distribution',
+    params: {
+      id: id
+    }
+  })
+}
+
 export class Goods {
   constructor(title, price, sellinfo, methods, sendtype) {
     this.title = title,
@@ -25,5 +34,24 @@ export class Bannar {
     this.totalsell = totalsell,
     this.totalgoods = totalgoods,
     this.comment = comment
+  }
+}
+
+export class NewStyle {
+  constructor(detailimg) {
+    this.detailimg = detailimg
+  }
+}
+
+export class InfoDetail {
+  constructor(tables, itemparams) {
+    this.tables = tables
+    this.itemparams = itemparams
+  }
+}
+
+export class CommentDetail {
+  constructor(rate) {
+    this.rate = rate
   }
 }
