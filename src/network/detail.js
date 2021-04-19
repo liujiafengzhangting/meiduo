@@ -18,6 +18,15 @@ export function getInfo(id) {
   })
 }
 
+export function getComment(id) {
+  return request({
+    url: '/comment',
+    params: {
+      id: id
+    }
+  })
+}
+
 export class Goods {
   constructor(title, price, sellinfo, methods, sendtype) {
     this.title = title,
@@ -53,5 +62,11 @@ export class InfoDetail {
 export class CommentDetail {
   constructor(rate) {
     this.rate = rate
+  }
+}
+
+export class SubCommentDetail {
+  constructor(list) {
+    this.list = list
   }
 }

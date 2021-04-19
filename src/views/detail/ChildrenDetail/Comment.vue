@@ -51,6 +51,10 @@ export default {
     },
     isHide(id) {
       this.currentId = null
+      setTimeout(() => {
+        this.$emit('loaddetailimg')
+      },1000)
+      
     },
   },
 }
@@ -74,7 +78,6 @@ export default {
   }
   .user {
     padding-top: 15px;
-    
   }
   .user span {
     position: relative;

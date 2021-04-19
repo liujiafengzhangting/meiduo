@@ -6,8 +6,7 @@
         <div class='count'>
           <span>{{goods.price}}</span>
           <!-- <img src="~assets/img/feature/collect.svg" alt=""> -->
-          <span class='collect'>{{goods.sell}}</span>
-          <span>{{goods.type}}</span>
+          <span class='collect'>{{showSell}}</span>
         </div>
       </div>
   </div>
@@ -37,6 +36,11 @@ export default {
     },
     toDetail(){
       this.$router.push('/detail/' + this.goods.id)
+    }
+  },
+  computed: {
+    showSell() {
+      return this.goods.sell || this.goods.sale
     }
   }
 }

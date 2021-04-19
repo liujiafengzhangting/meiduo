@@ -10,7 +10,6 @@
         <feature></feature>
         <sub-title :title='title' class='sub-title2' @subclick='getCurrentType' ref='subtitle2'></sub-title>
         <goodlist :goodslist='goodslist[currentType]'></goodlist>
-        
       </scroll>
       <totop @click.native='toTop' v-show='isShowToTop'></totop>
   
@@ -136,6 +135,9 @@ export default {
     
   },
   activated() {
+    console.log(this.currentPosition)
+    console.log(this.$refs.scroll.scroll)
+    this.$refs.scroll.refresh()
     this.$refs.scroll.scroll.scrollTo(0, this.currentPosition, 0)
   },
   deactivated() {

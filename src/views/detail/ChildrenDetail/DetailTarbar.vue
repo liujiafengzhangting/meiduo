@@ -15,6 +15,12 @@
 import navbar from 'components/common/navbar/NavBar'
 export default {
   name: "detailnavbar",
+  props: {
+    positionId: {
+      type: Number,
+      default: 0
+    }
+  },
   data() {
     return {
       navbars: ['商品', '参数', '评论', '推荐'],
@@ -30,14 +36,22 @@ export default {
     },
     chooseShop(id) {
       this.currentId = id
+      this.$emit('toPosition', id)
     },
     isActive(id) {
-      return this.currentId === id
+      return this.currentId === id 
     }
   },
   computed: {
     
   },
+  watch: {
+    positionId: {
+      handler(newvalue, oldvalue) {
+        this.currentId = newvalue
+      }
+    }
+  }
   
 }
 </script>
