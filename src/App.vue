@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <keep-alive exclude='detail'>
+      <keep-alive exclude='detail, cart'>
         <router-view></router-view>
       </keep-alive>
-      <maintabbar/>
+      <!-- <maintabbar/> -->
     </div>
   </div>
 </template>

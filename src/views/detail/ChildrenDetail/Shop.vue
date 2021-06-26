@@ -69,7 +69,6 @@ export default {
   methods: {
      getComment() {
       if(this.bannar.comment) {
-        console.log(typeof(this.bannar.comment.issame))
         this.bannar.comment.same > 5? this.issame = '高': this.issame = '低'
         this.bannar.comment.pricebetter > 5? this.ispricebetter = '高': this.ispricebetter = '低'
         this.bannar.comment.good > 5? this.isgood = '高': this.isgood = '低'

@@ -13,7 +13,7 @@
         <img src="~assets/img/detail/collect.png" alt="" slot='img'>
         <div slot='text'><span>收藏</span></div>
       </detail-nav-item>
-      <div class='itemright' slot='right' id='cart'>
+      <div @click='addgoods' class='itemright' slot='right' id='cart'>
         <span>加入购物车</span>
       </div>
       <div class='itemright' slot='right' id='buy'>
@@ -35,6 +35,11 @@ export default {
   components: {
     DetailNav,
     DetailNavItem
+  },
+  methods: {
+    addgoods() {
+      this.$emit('addgoods')
+    }
   }
 }
 </script>

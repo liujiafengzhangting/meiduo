@@ -135,8 +135,6 @@ export default {
     
   },
   activated() {
-    console.log(this.currentPosition)
-    console.log(this.$refs.scroll.scroll)
     this.$refs.scroll.refresh()
     this.$refs.scroll.scroll.scrollTo(0, this.currentPosition, 0)
   },

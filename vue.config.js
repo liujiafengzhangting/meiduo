@@ -8,6 +8,7 @@ module.exports = {
             'views': '@/views',
           }
         }
-      }
+      },
+    publicPath: '',
 }
 const express = require('express')

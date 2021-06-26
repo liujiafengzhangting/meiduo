@@ -28,12 +28,13 @@ export function getComment(id) {
 }
 
 export class Goods {
-  constructor(title, price, sellinfo, methods, sendtype) {
+  constructor(title, price, sellinfo, methods, sendtype, desc) {
     this.title = title,
     this.price = price,
     this.sellinfo = sellinfo[0],
     this.methods = methods,
-    this.sendtype = sendtype
+    this.sendtype = sendtype,
+    this.desc = desc
   }
 }
 

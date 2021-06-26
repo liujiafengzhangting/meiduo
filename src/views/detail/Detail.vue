@@ -10,7 +10,7 @@
       <comment :comment='commentdetail' @loaddetailimg='loadmore' ref='comment'></comment>
       <good-list :goodslist='subcommentdetail' class='goodlist' ref='goodlist'></good-list>
     </scroll>
-    <nav-bar-detail></nav-bar-detail>
+    <nav-bar-detail @addgoods='addtocars'></nav-bar-detail>
   </div>
 </template>
 
@@ -72,7 +72,7 @@ export default {
       getSwiper(id).then(ret => {
         this.swiper = ret.data.swiper
         this.sendtype = ret.data.sendtype.split('，')
-        this.goods = new Goods(ret.data.title, ret.data.price, ret.data.sellinfo, ret.data.methods, this.sendtype)
+        this.goods = new Goods(ret.data.title, ret.data.price, ret.data.sellinfo, ret.data.methods, this.sendtype, ret.data.desc)
         this.bannar = new Bannar(ret.data.bannar.logo, ret.data.bannar.totalsell, ret.data.bannar.totalgoods, ret.data.bannar.comment)
         this.newstyle = new NewStyle(ret.data.detailimg)
      })
@@ -92,7 +92,6 @@ export default {
         this.subcommentdetail.push(...ret.data.list)
         this.isEnd = ret.data.isEnd
         this.$refs.scrolldetail.scroll.finishPullUp()
-        console.log(ret.data)
       })
     },
     pullUpload() {
@@ -134,6 +133,17 @@ export default {
       }else if(position.y <= this.shopOffset) {
         this.positionId = 0
       }
+    },
+    addtocars() {
+      this.$store.commit('incream', {
+        id: this.id, 
+        price: this.goods.price.currentprice,
+        title: this.goods.title,
+        img: this.newstyle.detailimg[0],
+        count: 1,
+        desc: this.goods.desc,
+        isChoose: true
+        })
     }
   },
   mounted() {
